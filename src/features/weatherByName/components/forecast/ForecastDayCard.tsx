@@ -1,5 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card"
-import type { ForecastDay } from "./types"
+import type { ForecastDay } from "../../types"
 
 interface ForecastDayCardProps {
   forecastDay: ForecastDay

@@ -1,4 +1,4 @@
-import type { ForecastDay } from "./types"
+import type { ForecastDay } from "../../types"
 import { ForecastDayCard } from "./ForecastDayCard"
 
 interface WeeklyForecastListProps {

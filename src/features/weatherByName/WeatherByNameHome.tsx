@@ -1,8 +1,8 @@
 import { useState } from "react"
 import { useQuery } from "@tanstack/react-query"
-import { SearchCityInput } from "./SearchCityInput"
-import { CurrentWeatherCard } from "./CurrentWeatherCard"
-import { WeeklyForecastList } from "./WeeklyForecastList"
+import { SearchCityInput } from "./components/search/SearchCityInput"
+import { CurrentWeatherCard } from "./components/current/CurrentWeatherCard"
+import { WeeklyForecastList } from "./components/forecast/WeeklyForecastList"
 import { fetchWeatherByCity } from "@/api/weatherApi"
 
 export function WeatherByNameHome() {
