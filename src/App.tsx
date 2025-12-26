@@ -1,7 +1,11 @@
 import { WeatherByNameHome } from "./features/weatherByName/WeatherByNameHome"
 
 function App() {
-  return <WeatherByNameHome />
+  return (
+    <div className="flex justify-center min-h-screen">
+      <WeatherByNameHome />
+    </div>
+  )
 }
 
 export default App
