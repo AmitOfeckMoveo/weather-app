@@ -3,13 +3,15 @@ import { useQuery } from "@tanstack/react-query"
 import { SearchCityInput } from "./components/search/SearchCityInput"
 import { CurrentWeatherCard } from "./components/current/CurrentWeatherCard"
 import { WeeklyForecastList } from "./components/forecast/WeeklyForecastList"
+import { LoadingState } from "@/components/shared/LoadingState"
+import { ErrorState } from "@/components/shared/ErrorState"
 import { fetchWeatherByCity } from "@/api/weatherApi"
 
 export function WeatherByNameHome() {
   const [cityName, setCityName] = useState("")
   const [searchQuery, setSearchQuery] = useState<string | null>(null)
 
-  const { data: weatherData, isLoading, error } = useQuery({
+  const { data: weatherData, isLoading, error, refetch } = useQuery({
     queryKey: ["weather", searchQuery],
     queryFn: () => fetchWeatherByCity({ cityName: searchQuery! }),
     enabled: !!searchQuery && searchQuery.trim() !== "",
@@ -34,15 +36,14 @@ export function WeatherByNameHome() {
         </div>
 
         {isLoading && (
-          <div className="flex justify-center">
-            <p className="text-muted-foreground">Loading weather data...</p>
-          </div>
+          <LoadingState message="Loading weather data..." />
         )}
 
         {error && (
-          <div className="flex justify-center">
-            <p className="text-destructive">Error loading weather data. Please try again.</p>
-          </div>
+          <ErrorState 
+            message="Error loading weather data. Please try again."
+            onRetry={() => refetch()}
+          />
         )}
 
         {weatherData && (
