@@ -16,7 +16,7 @@ function App() {
       <div className="flex gap-4 p-4 md:p-8 max-w-7xl mx-auto">
         {/* Left Sidebar - Recent Searches */}
         <aside className="hidden md:block w-[20%] min-w-[200px]">
-          <div className="sticky top-[4rem]">
+          <div className="sticky top-[2rem]">
             <RecentSearches
               searches={recentSearches}
               onSearchClick={handleHistoryClick}

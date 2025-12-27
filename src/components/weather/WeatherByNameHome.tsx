@@ -44,7 +44,7 @@ export function WeatherByNameHome({ externalSearchQuery, onAddSearch }: WeatherB
   }
 
   return (
-    <div className="p-4 md:p-8">
+    <div>
       <div className="w-full space-y-8">
         <div className="flex flex-col gap-4">
           <SearchCityInput
