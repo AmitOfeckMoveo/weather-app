@@ -4,7 +4,7 @@ import { RecentSearches } from "./components/weather/search/RecentSearches"
 import { useRecentSearches } from "./hooks/useRecentSearches"
 
 function App() {
-  const { recentSearches, removeSearch, clearSearches } = useRecentSearches()
+  const { recentSearches, addSearch, removeSearch, clearSearches } = useRecentSearches()
   const [externalSearchQuery, setExternalSearchQuery] = useState<string | null>(null)
 
   const handleHistoryClick = (cityName: string) => {
@@ -28,7 +28,10 @@ function App() {
 
         {/* Main Content - Weather App */}
         <main className="flex-1 md:w-[60%]">
-          <WeatherByNameHome externalSearchQuery={externalSearchQuery} />
+          <WeatherByNameHome 
+            externalSearchQuery={externalSearchQuery}
+            onAddSearch={addSearch}
+          />
         </main>
 
         {/* Right Sidebar - Reserved for future */}

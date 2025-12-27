@@ -6,16 +6,15 @@ import { WeeklyForecastList } from "./forecast/WeeklyForecastList"
 import { LoadingState } from "@/components/shared/LoadingState"
 import { ErrorState } from "@/components/shared/ErrorState"
 import { fetchWeatherByCity } from "@/api/weatherApi"
-import { useRecentSearches } from "@/hooks/useRecentSearches"
 
 interface WeatherByNameHomeProps {
   externalSearchQuery?: string | null
+  onAddSearch: (cityName: string) => void
 }
 
-export function WeatherByNameHome({ externalSearchQuery }: WeatherByNameHomeProps) {
+export function WeatherByNameHome({ externalSearchQuery, onAddSearch }: WeatherByNameHomeProps) {
   const [cityName, setCityName] = useState("")
   const [searchQuery, setSearchQuery] = useState<string | null>(null)
-  const { addSearch } = useRecentSearches()
 
   // Handle external search trigger
   useEffect(() => {
@@ -34,9 +33,9 @@ export function WeatherByNameHome({ externalSearchQuery }: WeatherByNameHomeProp
   // Save to recent searches when search succeeds
   useEffect(() => {
     if (weatherData && searchQuery) {
-      addSearch(searchQuery)
+      onAddSearch(searchQuery)
     }
-  }, [weatherData, searchQuery, addSearch])
+  }, [weatherData, searchQuery, onAddSearch])
 
   const handleSearch = () => {
     if (cityName.trim()) {
