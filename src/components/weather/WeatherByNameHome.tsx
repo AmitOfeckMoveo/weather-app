@@ -44,10 +44,9 @@ export function WeatherByNameHome({ externalSearchQuery, onAddSearch }: WeatherB
   }
 
   return (
-    <div className="min-h-screen p-4 md:p-8">
+    <div className="p-4 md:p-8">
       <div className="w-full space-y-8">
-        <div className="flex flex-col items-center gap-4">
-          <h1 className="text-4xl font-bold text-center">Weather App</h1>
+        <div className="flex flex-col gap-4">
           <SearchCityInput
             value={cityName}
             onChange={setCityName}
