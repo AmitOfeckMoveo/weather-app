@@ -1,5 +1,5 @@
 import { CardHeader, CardTitle } from "@/components/ui/card"
-import type { Location } from "../../types"
+import type { Location } from "@/types/weather"
 
 interface LocationHeaderProps {
   location: Location
@@ -15,4 +15,3 @@ export function LocationHeader({ location }: LocationHeaderProps) {
     </CardHeader>
   )
 }
-

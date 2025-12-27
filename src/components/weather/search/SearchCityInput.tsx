@@ -21,4 +21,3 @@ export function SearchCityInput({ value, onChange, onSearch }: SearchCityInputPr
     </div>
   )
 }
-
