@@ -1,8 +1,14 @@
 import axios from "axios"
-import type { WeatherResponse } from "@/features/weatherByName/types"
+import type { WeatherResponse } from "@/types/weather"
 
-const API_KEY = "2d8dcdf576244cdfaf8112534252512"
+const API_KEY = import.meta.env.VITE_WEATHER_API_KEY
 const BASE_URL = "https://api.weatherapi.com/v1"
+
+if (!API_KEY) {
+  throw new Error(
+    "VITE_WEATHER_API_KEY is not defined. Please create a .env file in the project root with: VITE_WEATHER_API_KEY=your_api_key"
+  )
+}
 
 export interface FetchWeatherParams {
   cityName: string
