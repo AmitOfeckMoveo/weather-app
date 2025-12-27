@@ -1,4 +1,4 @@
-import type { CurrentWeather } from "../../types"
+import type { CurrentWeather } from "@/types/weather"
 
 interface TemperatureDisplayProps {
   current: CurrentWeather
@@ -21,4 +21,3 @@ export function TemperatureDisplay({ current }: TemperatureDisplayProps) {
     </div>
   )
 }
-

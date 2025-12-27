@@ -15,4 +15,3 @@ export function WeatherMetric({ label, value, unit }: WeatherMetricProps) {
     </div>
   )
 }
-

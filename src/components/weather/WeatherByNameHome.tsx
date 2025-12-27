@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react"
 import { useQuery } from "@tanstack/react-query"
-import { SearchCityInput } from "./components/search/SearchCityInput"
-import { CurrentWeatherCard } from "./components/current/CurrentWeatherCard"
-import { WeeklyForecastList } from "./components/forecast/WeeklyForecastList"
+import { SearchCityInput } from "./search/SearchCityInput"
+import { CurrentWeatherCard } from "./current/CurrentWeatherCard"
+import { WeeklyForecastList } from "./forecast/WeeklyForecastList"
 import { LoadingState } from "@/components/shared/LoadingState"
 import { ErrorState } from "@/components/shared/ErrorState"
 import { fetchWeatherByCity } from "@/api/weatherApi"
@@ -85,4 +85,3 @@ export function WeatherByNameHome({ externalSearchQuery }: WeatherByNameHomeProp
     </div>
   )
 }
-

@@ -1,6 +1,6 @@
 import { useState } from "react"
-import { WeatherByNameHome } from "./features/weatherByName/WeatherByNameHome"
-import { RecentSearches } from "./features/weatherByName/components/search/RecentSearches"
+import { WeatherByNameHome } from "./components/weather/WeatherByNameHome"
+import { RecentSearches } from "./components/weather/search/RecentSearches"
 import { useRecentSearches } from "./hooks/useRecentSearches"
 
 function App() {

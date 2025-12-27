@@ -20,4 +20,3 @@ export function RecentSearchesHeader({ onClear }: RecentSearchesHeaderProps) {
     </CardHeader>
   )
 }
-

@@ -12,4 +12,3 @@ export function RecentSearchesEmpty() {
     </Card>
   )
 }
-

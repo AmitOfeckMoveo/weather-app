@@ -25,4 +25,3 @@ export function RecentSearchesList({
     </CardContent>
   )
 }
-

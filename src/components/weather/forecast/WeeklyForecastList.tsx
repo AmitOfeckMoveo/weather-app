@@ -1,4 +1,4 @@
-import type { ForecastDay } from "../../types"
+import type { ForecastDay } from "@/types/weather"
 import { ForecastDayCard } from "./ForecastDayCard"
 
 interface WeeklyForecastListProps {
@@ -17,4 +17,3 @@ export function WeeklyForecastList({ forecast }: WeeklyForecastListProps) {
     </div>
   )
 }
-
