@@ -5,6 +5,7 @@ import { CurrentWeatherCard } from "./current/CurrentWeatherCard"
 import { WeeklyForecastList } from "./forecast/WeeklyForecastList"
 import { LoadingState } from "@/components/shared/LoadingState"
 import { ErrorState } from "@/components/shared/ErrorState"
+import { Container } from "@/components/ui/Container"
 import { fetchWeatherByCity } from "@/api/weatherApi"
 
 interface WeatherByNameHomeProps {
@@ -44,42 +45,38 @@ export function WeatherByNameHome({ externalSearchQuery, onAddSearch }: WeatherB
   }
 
   return (
-    <div>
-      <div className="w-full space-y-8">
-        <div className="flex flex-col gap-4">
-          <SearchCityInput
-            value={cityName}
-            onChange={setCityName}
-            onSearch={handleSearch}
-          />
-        </div>
+    <Container variant="default" spacing="lg" width="full">
+      <SearchCityInput
+        value={cityName}
+        onChange={setCityName}
+        onSearch={handleSearch}
+      />
 
-        {isLoading && (
-          <LoadingState message="Loading weather data..." />
-        )}
+      {isLoading && (
+        <LoadingState message="Loading weather data..." />
+      )}
 
-        {error && (
-          <ErrorState 
-            message="Error loading weather data. Please try again."
-            onRetry={() => refetch()}
-          />
-        )}
+      {error && (
+        <ErrorState 
+          message="Error loading weather data. Please try again."
+          onRetry={() => refetch()}
+        />
+      )}
 
-        {weatherData && (
-          <>
-            <div className="flex justify-center">
-              <CurrentWeatherCard 
-                location={weatherData.location}
-                current={weatherData.current}
-              />
-            </div>
-            
-            <div className="flex justify-center">
-              <WeeklyForecastList forecast={weatherData.forecast.forecastday} />
-            </div>
-          </>
-        )}
-      </div>
-    </div>
+      {weatherData && (
+        <>
+          <Container variant="centered">
+            <CurrentWeatherCard 
+              location={weatherData.location}
+              current={weatherData.current}
+            />
+          </Container>
+          
+          <Container variant="centered">
+            <WeeklyForecastList forecast={weatherData.forecast.forecastday} />
+          </Container>
+        </>
+      )}
+    </Container>
   )
 }

@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils"
+import { Container } from "@/components/ui/Container"
 import type { CurrentWeather } from "@/types/weather"
 import { WeatherMetric } from "./WeatherMetric"
 
@@ -23,11 +24,14 @@ export function WeatherMetricsGrid({ current, size = "md" }: WeatherMetricsGridP
   const config = sizeConfig[size]
 
   return (
-    <div className={cn("grid gap-4 pt-4 border-t", config.grid)}>
+    <Container
+      variant="default"
+      className={cn("grid gap-4 pt-4 border-t", config.grid)}
+    >
       <WeatherMetric label="Humidity" value={current.humidity} unit="%" />
       <WeatherMetric label="Wind" value={current.wind_kph} unit="km/h" />
       <WeatherMetric label="Pressure" value={current.pressure_mb} unit="hPa" />
       <WeatherMetric label="UV Index" value={current.uv} />
-    </div>
+    </Container>
   )
 }
