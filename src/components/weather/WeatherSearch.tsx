@@ -1,19 +1,19 @@
 import { useState, useEffect } from "react"
 import { useQuery } from "@tanstack/react-query"
 import { SearchCityInput } from "./search/SearchCityInput"
-import { CurrentWeatherCard } from "./current/CurrentWeatherCard"
+import { WeatherCard } from "./current/WeatherCard"
 import { WeeklyForecastList } from "./forecast/WeeklyForecastList"
 import { LoadingState } from "@/components/shared/LoadingState"
 import { ErrorState } from "@/components/shared/ErrorState"
 import { Container } from "@/components/ui/Container"
 import { fetchWeatherByCity } from "@/api/weatherApi"
 
-interface WeatherByNameHomeProps {
+interface WeatherSearchProps {
   externalSearchQuery?: string | null
   onAddSearch: (cityName: string) => void
 }
 
-export function WeatherByNameHome({ externalSearchQuery, onAddSearch }: WeatherByNameHomeProps) {
+export function WeatherSearch({ externalSearchQuery, onAddSearch }: WeatherSearchProps) {
   const [cityName, setCityName] = useState("")
   const [searchQuery, setSearchQuery] = useState<string | null>(null)
 
@@ -65,7 +65,7 @@ export function WeatherByNameHome({ externalSearchQuery, onAddSearch }: WeatherB
 
       {weatherData && (
         <>
-          <CurrentWeatherCard 
+          <WeatherCard 
             location={weatherData.location}
             current={weatherData.current}
           />
@@ -76,3 +76,4 @@ export function WeatherByNameHome({ externalSearchQuery, onAddSearch }: WeatherB
     </Container>
   )
 }
+

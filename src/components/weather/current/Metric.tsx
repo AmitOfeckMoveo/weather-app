@@ -1,12 +1,12 @@
 import { Text } from "@/components/ui/Text"
 
-interface WeatherMetricProps {
+interface MetricProps {
   label: string
   value: string | number
   unit?: string
 }
 
-export function WeatherMetric({ label, value, unit }: WeatherMetricProps) {
+export function Metric({ label, value, unit }: MetricProps) {
   return (
     <div>
       <Text size="sm" weight="bold" className="text-muted-foreground">
@@ -19,3 +19,4 @@ export function WeatherMetric({ label, value, unit }: WeatherMetricProps) {
     </div>
   )
 }
+

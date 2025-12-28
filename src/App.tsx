@@ -1,7 +1,7 @@
 import { useState } from "react"
-import { WeatherByNameHome } from "./components/weather/WeatherByNameHome"
+import { WeatherSearch } from "./components/weather/WeatherSearch"
 import { RecentSearches } from "./components/weather/search/RecentSearches"
-import { CurrentLocationWeatherCard } from "./components/weather/current/CurrentLocationWeatherCard"
+import { LocationWeatherCard } from "./components/weather/current/LocationWeatherCard"
 import { useRecentSearches } from "./hooks/useRecentSearches"
 import { Layout } from "./components/ui/Layout"
 import { SidebarPanel } from "./components/ui/SidebarPanel"
@@ -25,12 +25,12 @@ function App() {
             onClear={clearSearches}
           />
         </SidebarPanel>
-        <WeatherByNameHome 
+        <WeatherSearch 
           externalSearchQuery={externalSearchQuery}
           onAddSearch={addSearch}
         />
         <SidebarPanel width="w-full" visibility="lg">
-          <CurrentLocationWeatherCard />
+          <LocationWeatherCard />
         </SidebarPanel>
       </Layout>
     </div>

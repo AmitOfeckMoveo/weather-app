@@ -3,9 +3,9 @@ import { cn } from "@/lib/utils"
 import type { Location, CurrentWeather } from "@/types/weather"
 import { LocationHeader } from "./LocationHeader"
 import { TemperatureDisplay } from "./TemperatureDisplay"
-import { WeatherMetricsGrid } from "./WeatherMetricsGrid"
+import { MetricsGrid } from "./MetricsGrid"
 
-interface CurrentWeatherCardProps {
+interface WeatherCardProps {
   location: Location
   current: CurrentWeather
   size?: "sm" | "md" | "lg"
@@ -29,11 +29,11 @@ const sizeConfig = {
   },
 }
 
-export function CurrentWeatherCard({ 
+export function WeatherCard({ 
   location, 
   current,
   size = "md"
-}: CurrentWeatherCardProps) {
+}: WeatherCardProps) {
   const config = sizeConfig[size]
 
   return (
@@ -41,8 +41,9 @@ export function CurrentWeatherCard({
       {config.showHeader && <LocationHeader location={location} />}
       <CardContent className={config.contentPadding}>
         <TemperatureDisplay current={current} size={size} />
-        <WeatherMetricsGrid current={current} size={size} />
+        <MetricsGrid current={current} size={size} />
       </CardContent>
     </Card>
   )
 }
+

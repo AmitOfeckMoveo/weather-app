@@ -2,11 +2,11 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Text } from "@/components/ui/Text"
 import { useCurrentLocationWeather } from "@/hooks/useCurrentLocationWeather"
-import { CurrentWeatherCard } from "./CurrentWeatherCard"
+import { WeatherCard } from "./WeatherCard"
 import { LoadingState } from "@/components/shared/LoadingState"
 import { ErrorState } from "@/components/shared/ErrorState"
 
-export function CurrentLocationWeatherCard() {
+export function LocationWeatherCard() {
   const {
     weatherData,
     isLoading,
@@ -39,7 +39,7 @@ export function CurrentLocationWeatherCard() {
         )}
 
         {weatherData && (
-          <CurrentWeatherCard 
+          <WeatherCard 
             location={weatherData.location}
             current={weatherData.current}
             size="sm"
