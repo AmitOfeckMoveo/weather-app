@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils"
 interface IconProps {
   src: string
   alt: string
-  size?: "xs" | "sm" | "md" | "lg" | "xl" | "2xl"
+  size?: "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl"
   className?: string
 }
 
@@ -14,6 +14,7 @@ const sizeClasses = {
   lg: "w-12 h-12",  // 48px
   xl: "w-16 h-16",  // 64px
   "2xl": "w-20 h-20", // 80px
+  "3xl": "w-24 h-24", // 96px
 }
 
 export function Icon({ 

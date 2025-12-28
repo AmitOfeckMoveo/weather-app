@@ -39,12 +39,11 @@ export function CurrentLocationWeatherCard() {
         )}
 
         {weatherData && (
-          <div className="[&_>div]:border-0 [&_>div]:shadow-none [&_>div]:bg-transparent [&_>div]:p-0 [&_header]:hidden [&_img]:w-16 [&_img]:h-16 [&_.text-5xl]:text-3xl [&_.text-lg]:text-sm [&_.gap-4]:gap-3 [&_.grid]:grid-cols-2 [&_.max-w-2xl]:max-w-none">
-            <CurrentWeatherCard 
-              location={weatherData.location}
-              current={weatherData.current}
-            />
-          </div>
+          <CurrentWeatherCard 
+            location={weatherData.location}
+            current={weatherData.current}
+            size="sm"
+          />
         )}
       </CardContent>
     </Card>
