@@ -1,4 +1,5 @@
 import { Text } from "@/components/ui/Text"
+import { Icon } from "@/components/ui/Icon"
 import type { CurrentWeather } from "@/types/weather"
 
 interface TemperatureDisplayProps {
@@ -8,10 +9,10 @@ interface TemperatureDisplayProps {
 export function TemperatureDisplay({ current }: TemperatureDisplayProps) {
   return (
     <div className="flex items-center gap-4">
-      <img
-        src={`https:${current.condition.icon}`}
+      <Icon
+        src={current.condition.icon}
         alt={current.condition.text}
-        className="w-20 h-20"
+        size="2xl"
       />
       <div>
         <Text size="5xl" weight="bold">

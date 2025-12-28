@@ -1,5 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { Text } from "@/components/ui/Text"
+import { Icon } from "@/components/ui/Icon"
 import type { ForecastDay } from "@/types/weather"
 
 interface ForecastDayCardProps {
@@ -16,10 +17,10 @@ export function ForecastDayCard({ forecastDay }: ForecastDayCardProps) {
         <Text size="sm" className="text-muted-foreground">
           {getDayName(forecastDay.date)}
         </Text>
-        <img
-          src={`https:${forecastDay.day.condition.icon}`}
+        <Icon
+          src={forecastDay.day.condition.icon}
           alt={forecastDay.day.condition.text}
-          className="w-12 h-12"
+          size="lg"
         />
         <Text size="md" weight="bold">
           {forecastDay.day.maxtemp_c}°C
