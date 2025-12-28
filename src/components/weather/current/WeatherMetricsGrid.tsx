@@ -1,4 +1,4 @@
-import type { CurrentWeather } from "../../types"
+import type { CurrentWeather } from "@/types/weather"
 import { WeatherMetric } from "./WeatherMetric"
 
 interface WeatherMetricsGridProps {
@@ -15,4 +15,3 @@ export function WeatherMetricsGrid({ current }: WeatherMetricsGridProps) {
     </div>
   )
 }
-

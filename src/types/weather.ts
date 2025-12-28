@@ -25,10 +25,10 @@ export interface CurrentWeather {
 export interface ForecastDay {
   date: string
   day: {
-    maxtemp_f: number
     maxtemp_c: number
-    mintemp_f: number
+    maxtemp_f: number
     mintemp_c: number
+    mintemp_f: number
     condition: WeatherCondition
   }
 }
@@ -40,4 +40,3 @@ export interface WeatherResponse {
     forecastday: ForecastDay[]
   }
 }
-

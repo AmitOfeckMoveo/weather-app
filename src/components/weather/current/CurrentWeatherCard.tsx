@@ -1,5 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card"
-import type { Location, CurrentWeather } from "../../types"
+import type { Location, CurrentWeather } from "@/types/weather"
 import { LocationHeader } from "./LocationHeader"
 import { TemperatureDisplay } from "./TemperatureDisplay"
 import { WeatherMetricsGrid } from "./WeatherMetricsGrid"
@@ -20,4 +20,3 @@ export function CurrentWeatherCard({ location, current }: CurrentWeatherCardProp
     </Card>
   )
 }
-
