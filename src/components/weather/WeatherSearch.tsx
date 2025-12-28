@@ -3,8 +3,7 @@ import { useQuery } from "@tanstack/react-query"
 import { SearchCityInput } from "./search/SearchCityInput"
 import { WeatherCard } from "./current/WeatherCard"
 import { WeeklyForecastList } from "./forecast/WeeklyForecastList"
-import { LoadingState } from "@/components/shared/LoadingState"
-import { ErrorState } from "@/components/shared/ErrorState"
+import { QueryState } from "@/components/shared/QueryState"
 import { Container } from "@/components/ui/Container"
 import { fetchWeatherByCity } from "@/api/weatherApi"
 
@@ -52,27 +51,25 @@ export function WeatherSearch({ externalSearchQuery, onAddSearch }: WeatherSearc
         onSearch={handleSearch}
       />
 
-      {isLoading && (
-        <LoadingState message="Loading weather data..." />
-      )}
-
-      {error && (
-        <ErrorState 
-          message="Error loading weather data. Please try again."
-          onRetry={() => refetch()}
-        />
-      )}
-
-      {weatherData && (
-        <>
-          <WeatherCard 
-            location={weatherData.location}
-            current={weatherData.current}
-          />
-          
-          <WeeklyForecastList forecast={weatherData.forecast.forecastday} />
-        </>
-      )}
+      <QueryState
+        isLoading={isLoading}
+        error={error}
+        data={weatherData}
+        loadingMessage="Loading weather data..."
+        errorMessage="Error loading weather data. Please try again."
+        onRetry={() => refetch()}
+      >
+        {weatherData && (
+          <>
+            <WeatherCard 
+              location={weatherData.location}
+              current={weatherData.current}
+            />
+            
+            <WeeklyForecastList forecast={weatherData.forecast.forecastday} />
+          </>
+        )}
+      </QueryState>
     </Container>
   )
 }
