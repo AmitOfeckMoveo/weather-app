@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { WeatherByNameHome } from "./components/weather/WeatherByNameHome"
 import { RecentSearches } from "./components/weather/search/RecentSearches"
+import { CurrentLocationWeatherCard } from "./components/weather/current/CurrentLocationWeatherCard"
 import { useRecentSearches } from "./hooks/useRecentSearches"
 
 function App() {
@@ -34,8 +35,12 @@ function App() {
           />
         </main>
 
-        {/* Right Sidebar - Reserved for future */}
-        <aside className="hidden lg:block w-[20%]"></aside>
+        {/* Right Sidebar - Current Location Weather */}
+        <aside className="hidden lg:block w-[25%]">
+          <div className="sticky top-[2rem]">
+            <CurrentLocationWeatherCard />
+          </div>
+        </aside>
       </div>
     </div>
   )

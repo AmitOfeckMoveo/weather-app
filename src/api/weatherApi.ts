@@ -31,3 +31,26 @@ export async function fetchWeatherByCity({
   return response.data
 }
 
+export interface FetchWeatherByLocationParams {
+  lat: number
+  lon: number
+  days?: number
+}
+
+export async function fetchWeatherByLocation({
+  lat,
+  lon,
+  days = 7,
+}: FetchWeatherByLocationParams): Promise<WeatherResponse> {
+  const response = await axios.get<WeatherResponse>(`${BASE_URL}/forecast.json`, {
+    params: {
+      key: API_KEY,
+      q: `${lat},${lon}`,
+      days,
+      aqi: "no",
+      alerts: "no",
+    },
+  })
+  return response.data
+}
+
