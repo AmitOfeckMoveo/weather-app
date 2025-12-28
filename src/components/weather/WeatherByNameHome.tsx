@@ -65,16 +65,12 @@ export function WeatherByNameHome({ externalSearchQuery, onAddSearch }: WeatherB
 
       {weatherData && (
         <>
-          <Container variant="centered">
-            <CurrentWeatherCard 
-              location={weatherData.location}
-              current={weatherData.current}
-            />
-          </Container>
+          <CurrentWeatherCard 
+            location={weatherData.location}
+            current={weatherData.current}
+          />
           
-          <Container variant="centered">
-            <WeeklyForecastList forecast={weatherData.forecast.forecastday} />
-          </Container>
+          <WeeklyForecastList forecast={weatherData.forecast.forecastday} />
         </>
       )}
     </Container>

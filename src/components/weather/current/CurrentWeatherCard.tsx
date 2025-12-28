@@ -37,7 +37,7 @@ export function CurrentWeatherCard({
   const config = sizeConfig[size]
 
   return (
-    <Card className={cn("w-full", config.card)}>
+    <Card className={cn("w-full mx-auto", config.card)}>
       {config.showHeader && <LocationHeader location={location} />}
       <CardContent className={config.contentPadding}>
         <TemperatureDisplay current={current} size={size} />

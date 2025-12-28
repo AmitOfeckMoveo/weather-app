@@ -9,7 +9,7 @@ interface WeeklyForecastListProps {
 
 export function WeeklyForecastList({ forecast }: WeeklyForecastListProps) {
   return (
-    <Container width="full" className="max-w-4xl">
+    <Container width="full" className="max-w-4xl mx-auto">
       <Text as="h2" size="xl" weight="bold" className="mb-4">
         7-Day Forecast
       </Text>
