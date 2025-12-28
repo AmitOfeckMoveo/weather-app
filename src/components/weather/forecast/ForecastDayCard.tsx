@@ -1,4 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card"
+import { Text } from "@/components/ui/Text"
 import type { ForecastDay } from "@/types/weather"
 
 interface ForecastDayCardProps {
@@ -12,16 +13,20 @@ export function ForecastDayCard({ forecastDay }: ForecastDayCardProps) {
   return (
     <Card className="flex flex-col items-center p-4 hover:bg-accent transition-colors">
       <CardContent className="flex flex-col items-center p-0 space-y-2">
-        <div className="text-sm font-medium text-muted-foreground">
+        <Text size="sm" className="text-muted-foreground">
           {getDayName(forecastDay.date)}
-        </div>
+        </Text>
         <img
           src={`https:${forecastDay.day.condition.icon}`}
           alt={forecastDay.day.condition.text}
           className="w-12 h-12"
         />
-        <div className="text-lg font-semibold">{forecastDay.day.maxtemp_c}°C</div>
-        <div className="text-sm text-muted-foreground">{forecastDay.day.mintemp_c}°C</div>
+        <Text size="md" weight="bold">
+          {forecastDay.day.maxtemp_c}°C
+        </Text>
+        <Text size="sm" className="text-muted-foreground">
+          {forecastDay.day.mintemp_c}°C
+        </Text>
       </CardContent>
     </Card>
   )

@@ -1,5 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
+import { Text } from "@/components/ui/Text"
 import { useCurrentLocationWeather } from "@/hooks/useCurrentLocationWeather"
 import { CurrentWeatherCard } from "./CurrentWeatherCard"
 import { LoadingState } from "@/components/shared/LoadingState"
@@ -22,9 +23,9 @@ export function CurrentLocationWeatherCard() {
       <CardContent className="space-y-4">
         {!hasLocation && !isLoading && !error && (
           <div className="flex flex-col items-center gap-4 py-8">
-            <p className="text-sm text-muted-foreground text-center">
+            <Text size="sm" className="text-muted-foreground text-center">
               Get weather for your current location
-            </p>
+            </Text>
             <Button onClick={getCurrentLocation}>Use My Location</Button>
           </div>
         )}

@@ -1,4 +1,5 @@
 import { CardHeader, CardTitle } from "@/components/ui/card"
+import { Text } from "@/components/ui/Text"
 import type { Location } from "@/types/weather"
 
 interface LocationHeaderProps {
@@ -11,7 +12,9 @@ export function LocationHeader({ location }: LocationHeaderProps) {
       <CardTitle className="text-2xl">
         {location.name}, {location.region}
       </CardTitle>
-      <p className="text-sm text-muted-foreground">{location.country}</p>
+      <Text size="sm" className="text-muted-foreground">
+        {location.country}
+      </Text>
     </CardHeader>
   )
 }

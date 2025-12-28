@@ -1,3 +1,4 @@
+import { Text } from "@/components/ui/Text"
 import type { CurrentWeather } from "@/types/weather"
 
 interface TemperatureDisplayProps {
@@ -13,10 +14,12 @@ export function TemperatureDisplay({ current }: TemperatureDisplayProps) {
         className="w-20 h-20"
       />
       <div>
-        <div className="text-5xl font-bold">{current.temp_c}°C</div>
-        <div className="text-lg text-muted-foreground">
+        <Text size="5xl" weight="bold">
+          {current.temp_c}°C
+        </Text>
+        <Text size="lg" className="text-muted-foreground">
           {current.condition.text}
-        </div>
+        </Text>
       </div>
     </div>
   )
