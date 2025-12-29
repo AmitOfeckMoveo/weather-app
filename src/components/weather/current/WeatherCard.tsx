@@ -14,17 +14,14 @@ interface WeatherCardProps {
 const sizeConfig = {
   sm: {
     card: "border-0 shadow-none bg-transparent",
-    showHeader: false,
     contentPadding: "p-0",
   },
   md: {
     card: "max-w-2xl",
-    showHeader: true,
     contentPadding: "space-y-4",
   },
   lg: {
     card: "max-w-4xl",
-    showHeader: true,
     contentPadding: "space-y-6",
   },
 }
@@ -38,7 +35,7 @@ export function WeatherCard({
 
   return (
     <Card className={cn("w-full mx-auto", config.card)}>
-      {config.showHeader && <LocationHeader location={location} />}
+      <LocationHeader location={location} size={size} />
       <CardContent className={config.contentPadding}>
         <TemperatureDisplay current={current} size={size} />
         <MetricsGrid current={current} size={size} />
