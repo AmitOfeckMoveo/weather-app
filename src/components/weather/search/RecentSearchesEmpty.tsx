@@ -1,4 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Text } from "@/components/ui/Text"
 
 export function RecentSearchesEmpty() {
   return (
@@ -7,7 +8,9 @@ export function RecentSearchesEmpty() {
         <CardTitle className="text-lg">Recent Searches</CardTitle>
       </CardHeader>
       <CardContent>
-        <p className="text-sm text-muted-foreground">No recent searches</p>
+        <Text size="sm" className="text-muted-foreground">
+          No recent searches
+        </Text>
       </CardContent>
     </Card>
   )

@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button"
+import { Text } from "@/components/ui/Text"
 
 interface RecentSearchItemProps {
   cityName: string
@@ -15,9 +16,9 @@ export function RecentSearchItem({
     <div className="flex items-center justify-between group hover:bg-accent rounded-md p-2 transition-colors">
       <button
         onClick={() => onSearchClick(cityName)}
-        className="flex-1 text-left text-sm hover:text-primary transition-colors"
+        className="flex-1 text-left hover:text-primary transition-colors"
       >
-        {cityName}
+        <Text size="sm">{cityName}</Text>
       </button>
       <Button
         variant="ghost"

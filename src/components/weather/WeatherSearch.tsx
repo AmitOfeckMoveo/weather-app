@@ -1,18 +1,18 @@
 import { useState, useEffect } from "react"
 import { useQuery } from "@tanstack/react-query"
 import { SearchCityInput } from "./search/SearchCityInput"
-import { CurrentWeatherCard } from "./current/CurrentWeatherCard"
+import { WeatherCard } from "./current/WeatherCard"
 import { WeeklyForecastList } from "./forecast/WeeklyForecastList"
-import { LoadingState } from "@/components/shared/LoadingState"
-import { ErrorState } from "@/components/shared/ErrorState"
+import { QueryState } from "@/components/shared/QueryState"
+import { Container } from "@/components/ui/Container"
 import { fetchWeatherByCity } from "@/api/weatherApi"
 
-interface WeatherByNameHomeProps {
+interface WeatherSearchProps {
   externalSearchQuery?: string | null
   onAddSearch: (cityName: string) => void
 }
 
-export function WeatherByNameHome({ externalSearchQuery, onAddSearch }: WeatherByNameHomeProps) {
+export function WeatherSearch({ externalSearchQuery, onAddSearch }: WeatherSearchProps) {
   const [cityName, setCityName] = useState("")
   const [searchQuery, setSearchQuery] = useState<string | null>(null)
 
@@ -44,42 +44,33 @@ export function WeatherByNameHome({ externalSearchQuery, onAddSearch }: WeatherB
   }
 
   return (
-    <div>
-      <div className="w-full space-y-8">
-        <div className="flex flex-col gap-4">
-          <SearchCityInput
-            value={cityName}
-            onChange={setCityName}
-            onSearch={handleSearch}
-          />
-        </div>
+    <Container variant="default" spacing="lg" width="full">
+      <SearchCityInput
+        value={cityName}
+        onChange={setCityName}
+        onSearch={handleSearch}
+      />
 
-        {isLoading && (
-          <LoadingState message="Loading weather data..." />
-        )}
-
-        {error && (
-          <ErrorState 
-            message="Error loading weather data. Please try again."
-            onRetry={() => refetch()}
-          />
-        )}
-
+      <QueryState
+        isLoading={isLoading}
+        error={error}
+        data={weatherData}
+        loadingMessage="Loading weather data..."
+        errorMessage="Error loading weather data. Please try again."
+        onRetry={() => refetch()}
+      >
         {weatherData && (
           <>
-            <div className="flex justify-center">
-              <CurrentWeatherCard 
-                location={weatherData.location}
-                current={weatherData.current}
-              />
-            </div>
+            <WeatherCard 
+              location={weatherData.location}
+              current={weatherData.current}
+            />
             
-            <div className="flex justify-center">
-              <WeeklyForecastList forecast={weatherData.forecast.forecastday} />
-            </div>
+            <WeeklyForecastList forecast={weatherData.forecast.forecastday} />
           </>
         )}
-      </div>
-    </div>
+      </QueryState>
+    </Container>
   )
 }
+
